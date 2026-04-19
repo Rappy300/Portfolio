@@ -1,0 +1,61 @@
+{
+  "profile": {
+    "name": "Ralph R. Ociones",
+    "title": "Web Designer / IT Student",
+    "about": "Hi, I'm Ralph, a passionate web designer and IT student...",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "email": ""
+    }
+  },
+  "skills": [
+    {
+      "id": 1,
+      "name": "HTML",
+      "percentage": 90
+    },
+    {
+      "id": 2,
+      "name": "CSS",
+      "percentage": 85
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Portfolio Website",
+      "description": "A personal portfolio website built with Next.js",
+      "image": "",
+      "tech": ["Next.js", "React"],
+      "link": "",
+      "github": ""
+    }
+  ],
+  "resume": {
+    "summary": "Experienced web designer with a passion for creating beautiful and functional websites.",
+    "education": [
+      {
+        "degree": "Bachelor of Science in Information Technology",
+        "school": "University Name",
+        "year": "2023"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Web Developer Intern",
+        "company": "Company Name",
+        "year": "2022",
+        "description": "Developed responsive websites using HTML, CSS, and JavaScript."
+      }
+    ],
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "certifications": [
+      {
+        "name": "Certified Web Developer",
+        "issuer": "Issuer",
+        "year": "2023"
+      }
+    ]
+  }
+}
