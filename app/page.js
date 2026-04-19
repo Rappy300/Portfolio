@@ -40,6 +40,9 @@ export default function Home() {
 
   if (!data) return <div className="page-shell loading-shell">Loading...</div>
 
+  const skillIcons = ['🖌️', '💻', '🚀']
+  const featuredProject = data.projects[0] || {}
+
   return (
     <div className="page-shell">
       <header className="topbar fade-in">
@@ -60,6 +63,7 @@ export default function Home() {
           <p className="eyebrow">Portfolio + Resume Builder</p>
           <h1 contentEditable={isAdmin} onBlur={e => updateProfile('title', e.target.textContent)}>{data.profile.title || `Designer, Developer & Director`}</h1>
           <p className="hero-subtitle" contentEditable={isAdmin} onBlur={e => updateProfile('about', e.target.textContent)}>{data.profile.about}</p>
+          <div className="hero-highlight">Launching premium digital brands with motion-led interfaces, pitch-ready systems, and product-first storytelling.</div>
           <div className="hero-actions">
             <Link href="/resume" className="button">View Resume</Link>
             {isAdmin ? <Link href="/dashboard" className="button button-secondary">Dashboard</Link> : <Link href="/login" className="button button-secondary">Admin Login</Link>}
@@ -72,10 +76,19 @@ export default function Home() {
         </div>
 
         <div className="hero-panel hero-visual card-glow">
+          <div className="hero-badge">Featured project</div>
           <div className="avatar large">{data.profile.name.charAt(0)}</div>
           <div className="hero-profile">
             <p className="profile-name" contentEditable={isAdmin} onBlur={e => updateProfile('name', e.target.textContent)}>{data.profile.name}</p>
             <p className="profile-title">{data.profile.title}</p>
+          </div>
+          <div className="hero-meta">
+            <span>{data.projects.length} launches</span>
+            <span>{data.skills.length} services</span>
+          </div>
+          <div className="hero-preview">
+            <h3>{featuredProject.title || 'Product systems & digital campaigns'}</h3>
+            <p>{featuredProject.description || 'Design systems, motion concepts, and launch-ready web experiences for ambitious brands.'}</p>
           </div>
           <div className="hero-overlay" />
         </div>
@@ -92,7 +105,7 @@ export default function Home() {
           <div className="services-grid">
             {data.skills.slice(0, 3).map((skill, index) => (
               <div className="service-card" key={skill.id || index}>
-                <div className="service-icon">?</div>
+                <div className="service-icon">{skillIcons[index] || '⚡'}</div>
                 <h3 contentEditable={isAdmin} onBlur={e => updateItem('skills', index, 'name', e.target.textContent)}>{skill.name}</h3>
                 <p>{skill.percentage}% proficiency</p>
               </div>
@@ -110,7 +123,9 @@ export default function Home() {
           <div className="portfolio-grid">
             {data.projects.map((project, index) => (
               <div className="portfolio-card" key={project.id || index}>
-                <div className="portfolio-thumb" />
+                <div className="portfolio-thumb">
+                  <div className="portfolio-badge">{project.tech?.[0] || 'Brand'}</div>
+                </div>
                 <div className="portfolio-content">
                   <h3 contentEditable={isAdmin} onBlur={e => updateItem('projects', index, 'title', e.target.textContent)}>{project.title}</h3>
                   <p contentEditable={isAdmin} onBlur={e => updateItem('projects', index, 'description', e.target.textContent)}>{project.description}</p>
@@ -133,6 +148,14 @@ export default function Home() {
             </div>
             <div className="about-visual card-glow">
               <div className="about-chip">Latest Works</div>
+              <div className="about-card">
+                <h3>{featuredProject.title || 'Fresh product launch'}</h3>
+                <p>{featuredProject.description || 'A polished brand system built for premium launches and conversion-driven campaigns.'}</p>
+                <div className="about-card-footer">
+                  <span>Impact-focused design</span>
+                  <span>High-conversion storytelling</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
