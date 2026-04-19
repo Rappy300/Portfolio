@@ -1,6 +1,8 @@
 {
+  "/_not-found": "app/_not-found.js",
   "/api/data/route": "app/api/data/route.js",
+  "/login/page": "app/login/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/page": "app/page.js",
-  "/resume/page": "app/resume/page.js",
-  "/login/page": "app/login/page.js"
+  "/resume/page": "app/resume/page.js"
 }
